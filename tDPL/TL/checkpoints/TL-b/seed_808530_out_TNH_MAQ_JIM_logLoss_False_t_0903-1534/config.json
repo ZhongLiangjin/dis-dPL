@@ -1,0 +1,80 @@
+{
+  "staNet": {
+    "hidFC": 256,
+    "outFC": 5,
+    "nAttr": 70,
+    "nMet": 3,
+    "spinUp": 730,
+    "nKernel": [
+      10,
+      5,
+      1
+    ],
+    "kernelSz": [
+      7,
+      5,
+      3
+    ],
+    "stride": [
+      1,
+      1,
+      1
+    ],
+    "poolSz": [
+      3,
+      2,
+      1
+    ]
+  },
+  "dyNet": {
+    "inLSTM": 73,
+    "hidLSTM": 256,
+    "outLSTM": 3
+  },
+  "data": {
+    "xTrainDataFile": "./data/xdata_6basins.pkl",
+    "xTestDataFile": "./data/xdata_69basins.pkl",
+    "flowFile": "./data/streamflow.csv",
+    "pretrainedModelPt": "./data/model_Ep50.pt",
+    "hydStations": [
+      "TNH",
+      "MAQ",
+      "JIM"
+    ],
+    "periods": [
+      [
+        "1960-1-1",
+        "1989-12-31"
+      ],
+      [
+        "1990-1-1",
+        "1999-12-31"
+      ],
+      [
+        "2000-1-1",
+        "2019-12-31"
+      ]
+    ],
+    "spinUp": 730,
+    "excludeBsnAttrVar": "slope_min",
+    "seqLen": 2190
+  },
+  "train": {
+    "lr": 0.001,
+    "epochs": 200,
+    "logLoss": false,
+    "wLog": 0.25,
+    "seed": 808530,
+    "wStationLoss": {
+      "TNH": 1,
+      "MAQ": 1,
+      "JIM": 1,
+      "HHY": 0.5
+    },
+    "patience": 15,
+    "clip": 0.5,
+    "gpu": true
+  },
+  "nMul": 16,
+  "out": "checkpoints/TL-b/seed_808530_out_TNH_MAQ_JIM_logLoss_False_t_0903-1534"
+}
