@@ -22,7 +22,6 @@ torch.backends.cudnn.benchmark = False
 
 ## GPU setting
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-
 forType = 'daymet'
 # for Type defines which forcing in CAMELS to use: 'daymet', 'nldas', 'maurer'
 ## Set hyperparameters
@@ -34,7 +33,6 @@ Ttrain = [19801001, 19951001]  # Training period
 Tinv = [19801001, 19951001]  # Inversion period for historical forcings
 spinUp = 730  # for each training sample, to use BUFFTIME days to warm up the states.
 Nmul = 16  # Multi-component model. How many parallel HBV components to use. 1 means the original HBV.
-
 rootDatabase = './Camels'  # CAMELS dataset root directory
 camels.initcamels(
     rootDatabase)  # initialize camels module-scope variables in camels.py (dirDB, gageDict) to read basin info
@@ -45,13 +43,11 @@ gageinfo = camels.gageDict
 hucinfo = gageinfo['huc']
 gageid = gageinfo['id']
 gageidLst = gageid.tolist()
-
 TrainLS = gageidLst  # all basins
 TrainInd = [gageidLst.index(j) for j in TrainLS]
 TestLS = gageidLst
 TestInd = [gageidLst.index(j) for j in TestLS]
 gageDic = {'TrainID': TrainLS, 'TestID': TestLS}
-
 TtrainLoad = Ttrain
 TinvLoad = Tinv
 

@@ -33,7 +33,6 @@ def trainModel(model, loaderTrn, loaderVal, lossFn, optimizer, scheduler, earlyS
             if i % 2 == 0:
                 logging.info(f'Iter {i} of {len(loaderTrn)}: Loss {loss.item():.3f}')
 
-
         epochLoss = totalLoss / len(loaderTrn)
         if scheduler is not None:
             scheduler.step(epochLoss)
