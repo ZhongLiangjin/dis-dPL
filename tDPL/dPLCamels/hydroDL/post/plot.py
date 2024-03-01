@@ -31,7 +31,7 @@ def plotBoxFig(data, label=None, figsize=(6, 4), savePath=None):
     ax.set_ylim(top=min(1.05, yMax * 1.2))
     nseMean, nseMedian = bp['means'][0].get_ydata()[0], bp['medians'][0].get_ydata()[0]
     kgeMean, kgeMedian = bp['means'][1].get_ydata()[0], bp['medians'][1].get_ydata()[0]
-    text = f'Median: NSE={nseMedian:.3f} KGE={kgeMedian:.3f}'
+    text = f'Median: NSE={nseMedian:.3f}, KGE={kgeMedian:.3f}'
     ax.annotate(text, xy=(0.03, 0.93), xycoords='axes fraction')
     ax.legend(bp['boxes'], label, loc='upper right', frameon=False, ncol=1, fontsize=12)
     plt.tight_layout()

@@ -4,8 +4,8 @@ Define
 
 class geoObj(object):
     def __init__(self):
-        pass
-
+        
+    
 
 class Dataset(object):
     def __init__(self):

@@ -1925,7 +1925,7 @@ class EXPHYDROMulET(torch.nn.Module):
 
             # soil water process
             Qbase = torch.clamp(parQMAX * torch.exp(-1 * parF * (parSMAX - Sss - Ssl)),
-                                max=torch.max(Ssl - PRECS, parQMAX), min=torch.zeros_like(parQMAX))
+                                max=torch.min(Ssl - PRECS, parQMAX), min=torch.zeros_like(parQMAX))
             cr = torch.clamp((Ssl / (parSMAX - Sss)) ** parBETA, max=1, min=0)
             ETact = torch.clamp(ETpm[t, :, :] * cr, max=Ssl - Qbase)
 
